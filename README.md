@@ -145,6 +145,18 @@ If Kafka/ClickHouse is unavailable, the app degrades gracefully:
 - For low-cost deployments, keep telemetry in demo mode.
 - For real live telemetry in production, configure managed Kafka/ClickHouse.
 
+## Release Notes
+
+### Latest Updates
+
+- Refreshed homepage layout and hierarchy for cleaner first-screen experience.
+- Updated hero messaging, skills section, and About Me content density.
+- Improved navbar branding with custom uploaded logo and hover interactions.
+- Reworked Experience section into interactive flip cards with company logos.
+- Expanded experience content from resume-aligned roles and achievements.
+- Replaced Pipeline Observability project with StackOverflow Tag Prediction.
+- Added resilient telemetry fail-open behavior for local/dev and demo scenarios.
+
 ## Author
 
 Shubh Oswal
