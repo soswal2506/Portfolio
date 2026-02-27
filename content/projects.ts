@@ -139,7 +139,7 @@ export const projects: Project[] = [
     tag: "Azure",
     stack: ["Azure Data Factory", "ADLS Gen2", "Databricks", "PySpark", "Azure SQL", "Power BI"],
     href: "/projects/covid19-azure-pipeline",
-    repo: "https://github.com/ROSHANFAREED/covid19-data-engineering",
+    repo: "https://github.com/soswal2506/Covid-19-Data-Engineering-Pipeline",
     overview:
       "An end-to-end Azure data engineering solution that ingests public COVID-19 datasets, transforms raw files into curated layers, and serves analytics-ready tables for reporting.",
     problem: [
