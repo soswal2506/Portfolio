@@ -25,7 +25,7 @@ export const projects: Project[] = [
     tag: "Streaming",
     stack: ["Kafka", "ClickHouse", "Next.js", "TypeScript", "ClickPipes"],
     href: "/projects/kafka-clickstream",
-    repo: "https://github.com/yourname/kafka-portfolio",
+    repo: "https://github.com/soswal2506/Portfolio",
     demo: "/telemetry",
     overview:
       "A production-shaped clickstream pipeline for my portfolio. Every meaningful interaction emits an event, lands in Kafka, and becomes queryable in ClickHouse within seconds.",

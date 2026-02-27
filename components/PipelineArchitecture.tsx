@@ -4,31 +4,31 @@ const stages = [
   {
     title: "Browser UI",
     subtitle: "Next.js client",
-    summary: "Visitors interact with the site and lightweight events are captured in the background.",
+    summary: "Captures user interactions.",
     chip: "User actions",
   },
   {
     title: "/api/track",
     subtitle: "Ingest endpoint",
-    summary: "A small API endpoint receives each event and prepares it for the pipeline.",
+    summary: "Validates and forwards events.",
     chip: "Ingest",
   },
   {
     title: "Kafka / Redpanda",
     subtitle: "Streaming buffer",
-    summary: "Events flow through a streaming layer so the website and analytics stay decoupled.",
+    summary: "Buffers event stream.",
     chip: "Stream",
   },
   {
     title: "ClickHouse",
     subtitle: "Analytics store",
-    summary: "The event stream is stored and organized for fast analytics queries.",
+    summary: "Stores data for fast queries.",
     chip: "Store & query",
   },
   {
     title: "Telemetry UI",
     subtitle: "Operational dashboard",
-    summary: "A live dashboard turns the data into metrics, trends, and recent activity views.",
+    summary: "Shows metrics and recent events.",
     chip: "Insights",
   },
 ];
@@ -63,21 +63,15 @@ export function PipelineArchitecture() {
         <div className="grid gap-3 md:grid-cols-3">
           <div>
             <div className="text-xs uppercase tracking-widest text-zinc-400">Partitioning</div>
-            <div className="mt-1 text-sm text-zinc-200">
-              Events are grouped so actions from the same visit stay in the right sequence.
-            </div>
+            <div className="mt-1 text-sm text-zinc-200">Keeps session event order stable.</div>
           </div>
           <div>
             <div className="text-xs uppercase tracking-widest text-zinc-400">Idempotency</div>
-            <div className="mt-1 text-sm text-zinc-200">
-              Unique event IDs make retries safer and help prevent duplicate counting.
-            </div>
+            <div className="mt-1 text-sm text-zinc-200">Prevents duplicate counting on retries.</div>
           </div>
           <div>
             <div className="text-xs uppercase tracking-widest text-zinc-400">Analytics</div>
-            <div className="mt-1 text-sm text-zinc-200">
-              Fast analytics queries power the live dashboard experience on the site.
-            </div>
+            <div className="mt-1 text-sm text-zinc-200">Powers near real-time dashboard views.</div>
           </div>
         </div>
       </Card>

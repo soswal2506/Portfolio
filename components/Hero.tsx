@@ -6,6 +6,7 @@ import { track } from "@/lib/track";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Magnetic } from "@/components/Magnetic";
+import { ChatbotDrawer } from "@/components/ChatbotDrawer";
 
 const ROLES = ["Data Engineer", "Analytics Engineer", "Gen AI Engineer"];
 const SKILLS = [
@@ -95,7 +96,7 @@ export function Hero() {
             I design end-to-end data products where interaction data becomes actionable insight in near real time.
           </motion.p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
             <Magnetic>
               <Link
                 href="/projects"
@@ -116,19 +117,21 @@ export function Hero() {
               </a>
             </Magnetic>
 
-            <a
-              href="https://github.com/soswal2506"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-2xl px-4 py-2 text-sm text-zinc-200 hover:bg-white/5"
-              onClick={() => {
-                track({ event_name: "button_click", element_id: "hero_github", page: pathname });
-              }}
-            >
-              GitHub {"->"}
-            </a>
+              <a
+                href="https://github.com/soswal2506"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-2xl px-4 py-2 text-sm text-zinc-200 hover:bg-white/5"
+                onClick={() => {
+                  track({ event_name: "button_click", element_id: "hero_github", page: pathname });
+                }}
+              >
+                GitHub {"->"}
+              </a>
+
+              <ChatbotDrawer />
+            </div>
           </div>
-        </div>
 
         <div className="rounded-2xl border border-white/10 bg-black/20 p-5 md:p-6">
           <div className="text-xs uppercase tracking-[0.22em] text-zinc-400">About Me</div>
