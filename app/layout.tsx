@@ -4,6 +4,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { TelemetryProvider } from "@/components/TelemetryProvider";
 import { Cursor } from "@/components/Cursor";
+import { ChatbotDrawer } from "@/components/ChatbotDrawer";
 import { Manrope, Sora } from "next/font/google";
 
 const manrope = Manrope({
@@ -26,6 +27,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${manrope.variable} ${sora.variable}`}>
         <TelemetryProvider>
+          <div className="ambient-orbs" aria-hidden="true">
+            <span className="ambient-orb orb-1" />
+            <span className="ambient-orb orb-2" />
+            <span className="ambient-orb orb-3" />
+          </div>
           <div className="noise" />
           <Cursor />
           <div className="min-h-screen">
@@ -33,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="mx-auto w-full max-w-6xl px-5 pb-20 pt-10">
               {children}
             </main>
+            <ChatbotDrawer />
             <Footer />
           </div>
         </TelemetryProvider>

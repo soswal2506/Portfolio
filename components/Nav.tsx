@@ -49,8 +49,10 @@ export function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`rounded-2xl px-3 py-2 text-sm transition-colors ${
-                  active ? "bg-white/10 text-zinc-50" : "text-zinc-200 hover:bg-white/5"
+                className={`rounded-2xl px-3 py-2 text-sm transition-all duration-200 ${
+                  active
+                    ? "bg-white/10 text-zinc-50 ring-1 ring-white/15"
+                    : "text-zinc-200 hover:-translate-y-0.5 hover:bg-white/5 hover:text-zinc-50"
                 }`}
                 onClick={() => track({ event_name: "nav_click", element_id: `nav_${l.label.toLowerCase()}`, page: pathname })}
               >

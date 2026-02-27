@@ -1,6 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
 import { PipelineArchitecture } from "@/components/PipelineArchitecture";
+import { HomeAbout } from "@/components/HomeAbout";
 
 export default function Page() {
   return (
@@ -9,6 +10,10 @@ export default function Page() {
         <section className="min-h-[calc(100vh-96px)]">
           <Hero />
         </section>
+      </Reveal>
+
+      <Reveal delay={0.05}>
+        <HomeAbout />
       </Reveal>
 
       <Reveal delay={0.08}>

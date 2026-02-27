@@ -133,38 +133,40 @@ export const projects: Project[] = [
   },
 
   {
-    slug: "incremental-upserts",
-    title: "Incremental Upsert Pipelines",
-    subtitle: "Cut freshness from multi-day latency to <4 hours using incremental processing + validations.",
-    tag: "ETL",
-    stack: ["PySpark", "Delta", "Spark SQL", "Databricks Jobs"],
-    href: "/projects/incremental-upserts",
+    slug: "covid19-azure-pipeline",
+    title: "COVID-19 Data Engineering Pipeline (Azure)",
+    subtitle: "End-to-end Azure pipeline from ingestion to curated SQL tables and Power BI analytics.",
+    tag: "Azure",
+    stack: ["Azure Data Factory", "ADLS Gen2", "Databricks", "PySpark", "Azure SQL", "Power BI"],
+    href: "/projects/covid19-azure-pipeline",
+    repo: "https://github.com/ROSHANFAREED/covid19-data-engineering",
     overview:
-      "Designed incremental upsert pipelines to keep large tables current with predictable SLAs and strong correctness guarantees.",
+      "An end-to-end Azure data engineering solution that ingests public COVID-19 datasets, transforms raw files into curated layers, and serves analytics-ready tables for reporting.",
     problem: [
-      "Full reloads caused long runtimes and late dashboards.",
-      "Schema drift and partial loads created trust issues."
+      "Public health datasets arrive in different files and formats, making unified analytics difficult.",
+      "Reporting requires a reliable pipeline from ingestion to curated, query-friendly outputs."
     ],
     solution: [
-      "Identify reliable change keys/watermarks.",
-      "Use MERGE/UPSERT patterns with idempotent runs.",
-      "Validate row counts, null rates, and business constraints."
+      "Ingest ECDC COVID-19 CSV datasets and population TSV files into ADLS Gen2 raw zone with Azure Data Factory.",
+      "Transform and standardize data using ADF Mapping Data Flows and Databricks PySpark notebooks.",
+      "Load clean datasets into Azure SQL Database for downstream BI in Power BI."
     ],
     metrics: [
-      "Freshness: multi-day → <4 hours (target).",
-      "Reduced compute cost by avoiding full table scans.",
-      "Lower incident rate with automated validations."
+      "Unified multiple COVID-19 source feeds into a single analytics model.",
+      "Enabled interactive dashboards for trends, country filters, and date-range analysis.",
+      "Established a reusable raw-to-curated architecture for future data products."
     ],
     architecture: [
-      "Raw landing → incremental extract",
-      "Transform → dedupe",
-      "MERGE into Delta target",
-      "DQ checks → publish"
+      "Public datasets and blob files -> ADF ingestion",
+      "ADLS Gen2 raw zone -> ADF/Databricks transformations",
+      "Curated clean zone in ADLS Gen2",
+      "ADF load into Azure SQL analytical tables",
+      "Power BI dashboards on top of Azure SQL"
     ],
     highlights: [
-      "Idempotent design for safe retries.",
-      "Backfill strategy supported via partitioned reruns.",
-      "Monitoring hooks for SLA enforcement."
+      "Hybrid transformation approach using low-code ADF plus code-based PySpark.",
+      "Clear separation of raw and curated layers for maintainability.",
+      "Architecture prepared for CI/CD, incremental loads, and data quality checks."
     ]
   },
 

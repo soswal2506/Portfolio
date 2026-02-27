@@ -5,7 +5,7 @@ export function Card({ children, className }: { children: ReactNode; className?:
   return (
     <div
       className={cn(
-        "glass p-5 transition-transform duration-200 ease-out hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]",
+        "glass glass-fancy p-5 transition-transform duration-200 ease-out hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.06]",
         className
       )}
     >
