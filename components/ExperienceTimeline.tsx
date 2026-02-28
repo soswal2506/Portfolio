@@ -47,11 +47,15 @@ export function ExperienceTimeline() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false, amount: 0.15 }}
                 transition={{ duration: 0.35, ease: "easeOut", delay: idx * 0.04 }}
-                className={`glass glass-fancy relative overflow-hidden rounded-2xl p-4 text-left transition-colors ${
-                  isActive ? "border-white/30 bg-white/[0.08]" : "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.06]"
+                whileHover={{ y: -3, scale: 1.01 }}
+                className={`group glass glass-fancy relative overflow-hidden rounded-2xl p-4 text-left transition-all duration-300 ${
+                  isActive
+                    ? "border-white/30 bg-white/[0.08] shadow-[0_14px_30px_rgba(0,0,0,0.28)]"
+                    : "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.06]"
                 }`}
               >
                 <div className={`pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accent}`} />
+                <div className="pointer-events-none absolute -right-8 -top-8 h-20 w-20 rounded-full bg-white/10 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="flex items-start gap-3">
                   {logo ? (
                     <span className="relative mt-0.5 h-10 w-10 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
@@ -80,8 +84,8 @@ export function ExperienceTimeline() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.28, ease: "easeOut" }}
-            >
+                transition={{ duration: 0.35, ease: "easeOut" }}
+              >
               <div className="mt-3 flex items-start gap-3">
                 {activeLogo ? (
                   <span className="relative mt-0.5 h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
@@ -99,8 +103,15 @@ export function ExperienceTimeline() {
               <div className="mt-4 rounded-xl border border-white/10 bg-black/20 p-4">
                 <div className="text-xs uppercase tracking-[0.16em] text-zinc-400">What I Delivered</div>
                 <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-[1.45rem] text-zinc-200">
-                  {active.bullets.map((b) => (
-                    <li key={b}>{b}</li>
+                  {active.bullets.map((b, i) => (
+                    <motion.li
+                      key={b}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.25, ease: "easeOut", delay: i * 0.05 }}
+                    >
+                      {b}
+                    </motion.li>
                   ))}
                 </ul>
               </div>

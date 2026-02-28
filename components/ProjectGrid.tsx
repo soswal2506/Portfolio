@@ -33,18 +33,22 @@ export function ProjectGrid({ limit }: { limit?: number }) {
           key={p.slug}
           variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.45, ease: "easeOut" }}
+          whileHover={{ y: -6, scale: 1.01 }}
+          className="will-change-transform"
         >
-          <Card className="group relative h-full overflow-hidden">
+          <Card className="group relative h-full overflow-hidden transition-shadow duration-300 hover:shadow-[0_20px_45px_rgba(0,0,0,0.35)]">
             <div className={`pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accents[idx % accents.length]}`} />
+            <div className={`pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-br ${accents[idx % accents.length]}`} />
             <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/5 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="pointer-events-none absolute -left-8 bottom-0 h-24 w-24 rounded-full bg-[#6AD7FF]/15 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-start gap-3">
-                <div className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xs font-semibold text-zinc-200">
+                <div className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 text-xs font-semibold text-zinc-200 transition-transform duration-300 group-hover:scale-110">
                   {idx + 1}
                 </div>
                 <div>
-                  <div className="text-lg font-semibold tracking-tight text-zinc-100">{p.title}</div>
+                  <div className="text-lg font-semibold tracking-tight text-zinc-100 transition-colors duration-300 group-hover:text-[#F3E9DC]">{p.title}</div>
                   <div className="mt-1 text-sm text-zinc-300">{p.subtitle}</div>
                 </div>
               </div>
@@ -55,7 +59,7 @@ export function ProjectGrid({ limit }: { limit?: number }) {
 
             <div className="mt-4 flex flex-wrap gap-2">
               {p.stack.slice(0, 6).map((s) => (
-                <span key={s} className="rounded-full border border-white/10 bg-white/[0.04] px-2 py-1 text-xs text-zinc-200">
+                <span key={s} className="rounded-full border border-white/10 bg-white/[0.04] px-2 py-1 text-xs text-zinc-200 transition-colors duration-300 group-hover:border-white/20 group-hover:bg-white/10">
                   {s}
                 </span>
               ))}

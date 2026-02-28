@@ -101,7 +101,7 @@ export function ChatbotDrawer() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group fixed bottom-5 right-5 z-[85] inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-sm text-zinc-100 shadow-lg backdrop-blur-sm transition-transform duration-200 hover:scale-105 md:bottom-7 md:right-7"
+        className="group fixed bottom-5 right-5 z-[85] inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-[color:var(--bg-0)] text-sm text-zinc-100 shadow-lg transition-transform duration-200 hover:scale-105 md:bottom-7 md:right-7"
       >
         <span className="relative h-12 w-12 overflow-hidden rounded-full ring-1 ring-white/20">
           <Image
@@ -130,19 +130,19 @@ export function ChatbotDrawer() {
             onClick={closeAndReset}
           />
 
-          <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col border-l border-white/10 bg-[color:var(--bg-0)]/95 p-4 shadow-2xl">
+          <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col border-l border-white/10 bg-[color:var(--bg-0)] p-4 shadow-2xl">
             <div className="mb-3 flex items-center justify-between">
               <div>
                 <div className="text-xs uppercase tracking-widest text-zinc-400">GenAI</div>
                 <div className="text-lg font-semibold text-zinc-100">Portfolio Assistant</div>
               </div>
-              <button
-                type="button"
-                onClick={closeAndReset}
-                className="rounded-lg border border-white/10 px-2 py-1 text-xs text-zinc-300 hover:bg-white/10"
-              >
-                Close
-              </button>
+                <button
+                  type="button"
+                  onClick={closeAndReset}
+                  className="rounded-lg border border-white/10 bg-[#111827] px-2 py-1 text-xs text-zinc-200 hover:bg-[#1f2937]"
+                >
+                  Close
+                </button>
             </div>
 
             <div className="mb-3 flex flex-wrap gap-2">
@@ -150,7 +150,7 @@ export function ChatbotDrawer() {
                 <button
                   key={s}
                   type="button"
-                  className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-left text-xs text-zinc-200 hover:bg-white/10"
+                  className="rounded-lg border border-white/10 bg-[#111827] px-2.5 py-1.5 text-left text-xs text-zinc-200 hover:bg-[#1f2937]"
                   onClick={() => void ask(s)}
                   disabled={!canAsk}
                 >
@@ -159,13 +159,13 @@ export function ChatbotDrawer() {
               ))}
             </div>
 
-            <div className="flex-1 space-y-3 overflow-y-auto rounded-2xl border border-white/10 bg-black/20 p-3">
+            <div className="flex-1 space-y-3 overflow-y-auto rounded-2xl border border-white/10 bg-[#0b1220] p-3">
               {messages.map((m, idx) => (
                 <div
                   key={`${m.role}-${idx}`}
                   className={[
                     "max-w-[92%] rounded-2xl px-3 py-2 text-sm leading-6",
-                    m.role === "user" ? "ml-auto bg-[#6AD7FF]/20 text-zinc-100" : "bg-white/8 text-zinc-200",
+                    m.role === "user" ? "ml-auto bg-[#1f5f7a] text-zinc-100" : "bg-[#1f2937] text-zinc-100",
                   ].join(" ")}
                 >
                   <div className="whitespace-pre-wrap">{m.text}</div>
@@ -183,7 +183,7 @@ export function ChatbotDrawer() {
                     </div>
                   ) : null}
                   {m.role === "assistant" && m.recommendedPage ? (
-                    <div className="mt-2 rounded-xl border border-white/10 bg-white/[0.04] p-2 text-xs text-zinc-300">
+                    <div className="mt-2 rounded-xl border border-white/10 bg-[#0f172a] p-2 text-xs text-zinc-300">
                       <div className="mb-1">{m.recommendedPage.reason}</div>
                       <a
                         href={m.recommendedPage.url}
@@ -204,7 +204,7 @@ export function ChatbotDrawer() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about projects, experience, skills..."
-                className="w-full rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-white/20"
+                className="w-full rounded-xl border border-white/10 bg-[#111827] px-3 py-2 text-sm text-zinc-100 outline-none placeholder:text-zinc-500 focus:border-white/20"
               />
               <button
                 type="submit"
