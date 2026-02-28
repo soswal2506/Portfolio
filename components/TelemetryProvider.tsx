@@ -7,7 +7,7 @@ import { track } from "@/lib/track";
 const PAGE_VIEW_DEDUPE_KEY = "telemetry:last_page_view";
 const PAGE_VIEW_DEDUPE_MS = 1500;
 
-export function TelemetryProvider({ children }: { children: React.ReactNode }) {
+export function TelemetryProvider() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -35,5 +35,5 @@ export function TelemetryProvider({ children }: { children: React.ReactNode }) {
     });
   }, [pathname, searchParams]);
 
-  return <>{children}</>;
+  return null;
 }

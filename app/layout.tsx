@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { TelemetryProvider } from "@/components/TelemetryProvider";
@@ -26,23 +27,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`${manrope.variable} ${sora.variable}`}>
-        <TelemetryProvider>
-          <div className="ambient-orbs" aria-hidden="true">
-            <span className="ambient-orb orb-1" />
-            <span className="ambient-orb orb-2" />
-            <span className="ambient-orb orb-3" />
-          </div>
-          <div className="noise" />
-          <Cursor />
-          <div className="min-h-screen">
-            <Nav />
-            <main className="mx-auto w-full max-w-6xl px-5 pb-20 pt-10">
-              {children}
-            </main>
-            <ChatbotDrawer />
-            <Footer />
-          </div>
-        </TelemetryProvider>
+        <Suspense fallback={null}>
+          <TelemetryProvider />
+        </Suspense>
+        <div className="ambient-orbs" aria-hidden="true">
+          <span className="ambient-orb orb-1" />
+          <span className="ambient-orb orb-2" />
+          <span className="ambient-orb orb-3" />
+        </div>
+        <div className="noise" />
+        <Cursor />
+        <div className="min-h-screen">
+          <Nav />
+          <main className="mx-auto w-full max-w-6xl px-5 pb-20 pt-10">
+            {children}
+          </main>
+          <ChatbotDrawer />
+          <Footer />
+        </div>
       </body>
     </html>
   );
