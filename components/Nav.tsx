@@ -5,12 +5,14 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { track } from "@/lib/track";
 import { Magnetic } from "@/components/Magnetic";
+import { MusicNavBar } from "@/components/MusicNavBar";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
   { href: "/experience", label: "Experience" },
   { href: "/projects", label: "Work" },
-  { href: "/certifications", label: "Certs" },
+  { href: "/certifications", label: "Certifications" },
   { href: "/telemetry", label: "Telemetry" },
 ];
 
@@ -18,7 +20,7 @@ export function Nav() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0c1019]/80 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[color:var(--header-bg)]/85 backdrop-blur-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <Link
           href="/"
@@ -37,8 +39,8 @@ export function Nav() {
             />
           </span>
           <div className="leading-tight">
-            <div className="font-display text-sm font-semibold">Shubh Oswal</div>
-            <div className="text-xs text-zinc-400">AI + Data Engineering</div>
+            <div className="font-display text-sm font-semibold text-[color:var(--ink-0)]">Shubh Oswal</div>
+            <div className="text-xs text-[color:var(--ink-1)]">AI + Data Engineering</div>
           </div>
         </Link>
 
@@ -51,8 +53,8 @@ export function Nav() {
                 href={l.href}
                 className={`rounded-2xl px-3 py-2 text-sm transition-all duration-200 ${
                   active
-                    ? "bg-white/10 text-zinc-50 ring-1 ring-white/15"
-                    : "text-zinc-200 hover:-translate-y-0.5 hover:bg-white/5 hover:text-zinc-50"
+                    ? "bg-white/10 text-[color:var(--ink-0)] ring-1 ring-white/15"
+                    : "text-[color:var(--ink-1)] hover:-translate-y-0.5 hover:bg-white/5 hover:text-[color:var(--ink-0)]"
                 }`}
                 onClick={() => track({ event_name: "nav_click", element_id: `nav_${l.label.toLowerCase()}`, page: pathname })}
               >
@@ -63,22 +65,30 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <MusicNavBar />
+          <ThemeToggle />
+
           <Magnetic>
             <a
               href="/Shubh_Oswal-Data_Engineer.pdf"
               download
-              className="rounded-2xl bg-[#F7B77C]/20 px-3 py-2 text-sm font-medium text-[#FDEBDD] ring-1 ring-[#F7B77C]/35 hover:bg-[#F7B77C]/30"
+              className="inline-flex items-center gap-1.5 px-1 py-2 text-sm font-medium text-[color:var(--ink-1)] transition-colors hover:text-[color:var(--ink-0)]"
               onClick={() => {
                 track({ event_name: "button_click", element_id: "resume_download", page: pathname });
               }}
             >
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+                <path d="M12 4v10" strokeLinecap="round" />
+                <path d="m8.5 10.5 3.5 3.5 3.5-3.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M5.5 17.5h13" strokeLinecap="round" />
+              </svg>
               Resume
             </a>
           </Magnetic>
 
           <Link
             href="/contact"
-            className="rounded-2xl px-3 py-2 text-sm text-zinc-200 hover:bg-white/5"
+            className="rounded-2xl px-3 py-2 text-sm text-[color:var(--ink-1)] hover:bg-white/5 hover:text-[color:var(--ink-0)]"
             onClick={() => {
               track({ event_name: "button_click", element_id: "contact_click", page: pathname });
             }}

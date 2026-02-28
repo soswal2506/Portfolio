@@ -25,7 +25,7 @@ const SKILLS = [
 
 export function HomeAbout() {
   return (
-    <section className="relative flex min-h-[calc(100vh-96px)] items-center justify-center overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03] px-6 py-12 text-center shadow-soft md:px-10">
+    <section className="relative flex items-center justify-center overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03] px-6 py-10 text-center shadow-soft md:px-10">
       <div className="pointer-events-none absolute -left-24 top-12 h-64 w-64 rounded-full bg-[#6AD7FF]/15 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-10 h-64 w-64 rounded-full bg-[#F7B77C]/15 blur-3xl" />
 
@@ -34,7 +34,7 @@ export function HomeAbout() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
-        className="relative mx-auto w-full max-w-5xl space-y-6"
+        className="relative mx-auto w-full max-w-5xl space-y-5"
       >
         <div className="text-xs uppercase tracking-[0.24em] text-zinc-400">About Me</div>
         <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">

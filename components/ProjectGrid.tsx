@@ -25,7 +25,7 @@ export function ProjectGrid({ limit }: { limit?: number }) {
       className="grid gap-4 md:grid-cols-2"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: false, amount: 0.15 }}
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
     >
       {items.map((p, idx) => (

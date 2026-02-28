@@ -13,10 +13,10 @@ const accents = [
 export function Certifications() {
   return (
     <motion.div
-      className="grid gap-4 md:grid-cols-2"
+      className="grid grid-cols-1 gap-5"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: false, amount: 0.15 }}
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
     >
       {certs.map((c, idx) => (
@@ -29,7 +29,7 @@ export function Certifications() {
           variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.45, ease: "easeOut" }}
         >
-          <Card className="relative h-full overflow-hidden transition-transform duration-200 group-hover:-translate-y-1 group-hover:border-white/20 group-hover:bg-white/[0.06] group-active:translate-y-0">
+          <Card className="relative h-full overflow-hidden p-6 transition-transform duration-200 group-hover:-translate-y-1 group-hover:border-white/20 group-hover:bg-white/[0.06] group-active:translate-y-0">
             <div className={`pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accents[idx % accents.length]}`} />
 
             <div className="flex items-start justify-between gap-3">
@@ -38,7 +38,7 @@ export function Certifications() {
                   {idx + 1}
                 </div>
                 <div>
-                  <div className="text-lg font-semibold tracking-tight text-zinc-100 transition-colors group-hover:text-[#F3E9DC]">
+                  <div className="text-lg font-semibold tracking-tight text-zinc-100 transition-colors group-hover:text-[#F3E9DC] md:text-xl">
                     {c.title}
                   </div>
                   <div className="mt-1 text-sm text-zinc-300">{c.issuer}</div>

@@ -19,14 +19,26 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Shubh Oswal — Data Engineer",
+  title: "Shubh Oswal - Data Engineer",
   description: "Portfolio + Kafka streaming telemetry showcase",
 };
 
+const themeScript = `
+(() => {
+  const key = "portfolio-theme";
+  const stored = localStorage.getItem(key);
+  const theme = stored === "light" || stored === "dark"
+    ? stored
+    : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  document.documentElement.dataset.theme = theme;
+})();
+`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <body className={`${manrope.variable} ${sora.variable}`}>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <Suspense fallback={null}>
           <TelemetryProvider />
         </Suspense>

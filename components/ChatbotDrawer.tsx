@@ -101,20 +101,23 @@ export function ChatbotDrawer() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="fixed bottom-5 right-5 z-[85] inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-2 text-sm text-zinc-100 shadow-lg backdrop-blur-sm transition-transform duration-200 hover:scale-105 md:bottom-7 md:right-7"
+        className="group fixed bottom-5 right-5 z-[85] inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-sm text-zinc-100 shadow-lg backdrop-blur-sm transition-transform duration-200 hover:scale-105 md:bottom-7 md:right-7"
       >
-        <span className="relative h-9 w-9 overflow-hidden rounded-full ring-1 ring-white/20">
+        <span className="relative h-12 w-12 overflow-hidden rounded-full ring-1 ring-white/20">
           <Image
             src="/Feb 26, 2026, 04_55_29 PM.png"
             alt="Chat with Shubh"
             fill
-            sizes="36px"
+            sizes="48px"
             className="object-cover"
             priority
           />
         </span>
-        <span className="rounded-full bg-white/0 px-1.5 py-0.5 text-xs font-medium text-zinc-100/85">
-          Chat with me
+        <span
+          className="pointer-events-none absolute -left-2 -top-3 inline-block origin-bottom-right text-base opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-hover:animate-[wave-hand_0.9s_ease-in-out_infinite]"
+          aria-hidden="true"
+        >
+          {"\u{1F44B}"}
         </span>
       </button>
 
@@ -127,7 +130,7 @@ export function ChatbotDrawer() {
             onClick={closeAndReset}
           />
 
-          <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col border-l border-white/10 bg-[#0c1019]/95 p-4 shadow-2xl">
+          <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col border-l border-white/10 bg-[color:var(--bg-0)]/95 p-4 shadow-2xl">
             <div className="mb-3 flex items-center justify-between">
               <div>
                 <div className="text-xs uppercase tracking-widest text-zinc-400">GenAI</div>

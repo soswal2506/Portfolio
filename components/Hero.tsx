@@ -30,13 +30,13 @@ export function Hero() {
 
   return (
     <section
-      className="hover-ring group relative overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03] p-6 shadow-soft transition-all duration-300 hover:border-white/20 md:p-8 lg:p-10"
+      className="hover-ring group relative w-full overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.03] p-8 shadow-soft transition-all duration-300 hover:border-white/20 md:p-10 lg:p-12"
       onMouseMove={withPointerGlow}
     >
       <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[#6AD7FF]/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-28 -left-24 h-80 w-80 rounded-full bg-[#F7B77C]/20 blur-3xl" />
 
-      <div className="relative mx-auto max-w-5xl">
+      <div className="relative mx-auto flex min-h-[calc(100vh-16rem)] w-full flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.72, ease: "easeOut", delay: 0.05 }}
-          className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight md:text-6xl"
+          className="mt-6 max-w-5xl text-4xl font-semibold tracking-tight md:text-6xl lg:text-7xl"
         >
           Building production-ready systems as a
           <span className="mt-2 block min-h-[1.15em]">
