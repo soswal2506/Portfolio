@@ -145,6 +145,30 @@ If Kafka/ClickHouse is unavailable, the app degrades gracefully:
 - For low-cost deployments, keep telemetry in demo mode.
 - For real live telemetry in production, configure managed Kafka/ClickHouse.
 
+## Free Deployment (Recommended)
+
+### Deploy on Vercel (No Cost)
+
+This project can be deployed for free on the Vercel Hobby plan.
+
+1. Push this repository to GitHub.
+2. In Vercel, click **Add New Project** and import this repo.
+3. Keep default build settings for Next.js.
+4. Set environment variable:
+
+```env
+TELEMETRY_FAIL_OPEN=true
+```
+
+5. Do not set Kafka/ClickHouse secrets unless you want live telemetry.
+6. Deploy.
+
+### Your URL Options
+
+- Default Vercel URL (auto-generated): `your-project-name.vercel.app`
+- Custom URL/domain (your own): Yes, add it in **Vercel Project -> Settings -> Domains**.
+- You can use a free subdomain from providers like DuckDNS, or any paid domain you own.
+
 ## Release Notes
 
 ### Latest Updates
@@ -154,7 +178,8 @@ If Kafka/ClickHouse is unavailable, the app degrades gracefully:
 - Improved navbar branding with custom uploaded logo and hover interactions.
 - Reworked Experience section into interactive flip cards with company logos.
 - Expanded experience content from resume-aligned roles and achievements.
-- Replaced Pipeline Observability project with StackOverflow Tag Prediction.
+- Replaced Epic FHIR project with End-to-End Airbnb Analytics Engineering.
+- Removed Lakehouse Medallion Modeling from the Work page.
 - Added resilient telemetry fail-open behavior for local/dev and demo scenarios.
 
 ## Author

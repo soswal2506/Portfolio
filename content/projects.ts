@@ -59,39 +59,39 @@ export const projects: Project[] = [
   },
 
   {
-    slug: "epic-fhir-crm",
-    title: "Epic FHIR → Lakehouse Integration",
-    subtitle: "Secure integration layer ingesting scheduling/clinical data for downstream analytics/CRM.",
-    tag: "Healthcare",
-    stack: ["FastAPI", "FHIR", "Databricks", "Delta", "OAuth2"],
-    href: "/projects/epic-fhir-crm",
-    repo: "https://github.com/yourname/epic-fhir-ingestion",
+    slug: "airbnb-analytics-engineering",
+    title: "End-to-End Airbnb Analytics Engineering",
+    subtitle: "CSV -> S3 -> Snowflake -> dbt Bronze/Silver/Gold models with analytics-ready outputs.",
+    tag: "Snowflake",
+    stack: ["Snowflake", "dbt", "AWS S3", "Python", "SQL"],
+    href: "/projects/airbnb-analytics-engineering",
+    repo: "https://github.com/soswal2506/airbnb-data-engineering-on-snowflake",
     overview:
-      "Built a secure integration layer that extracts scheduling and clinical data from Epic via FHIR APIs and lands it in a lakehouse for analytics and CRM workflows.",
+      "An end-to-end data engineering pipeline for Airbnb listings, hosts, and bookings using Snowflake and dbt. The project implements medallion modeling, incremental processing, and historical tracking for analytics.",
     problem: [
-      "Healthcare data is fragmented (EHR, claims, scheduling).",
-      "We needed reliable ingestion with auditability and strong access controls."
+      "Airbnb source data arrives as separate raw files that are not analytics-ready.",
+      "Business users need consistent, reliable metrics with historical tracking across changing entities."
     ],
     solution: [
-      "Use FHIR REST endpoints with secure auth and scoped access.",
-      "Land raw data to bronze tables, standardize to silver models, and publish curated gold marts.",
-      "Add validations for completeness and schema drift handling."
+      "Ingest source CSVs into staging, then model Bronze/Silver/Gold layers in dbt on Snowflake.",
+      "Use incremental models to process only new/changed records and improve runtime efficiency.",
+      "Implement dbt snapshots (SCD Type 2) for bookings, hosts, and listings to preserve history."
     ],
     metrics: [
-      "Data volume: millions of records across scheduling + clinical domains.",
-      "Freshness improvements via incremental ingestion.",
-      "Reduced manual effort for downstream CRM and analytics consumers."
+      "Produced analytics-ready Gold datasets (`fact` and `obt`) for downstream reporting.",
+      "Reduced rebuild overhead via incremental model execution in Bronze/Silver layers.",
+      "Improved trust with dbt tests, source checks, and lineage visibility."
     ],
     architecture: [
-      "FHIR API extraction → raw landing",
-      "Bronze/Silver/Gold modeling (Delta)",
-      "Incremental upserts + validation checks",
-      "Curated marts for BI/CRM"
+      "Source CSV data -> AWS S3 -> Snowflake staging tables",
+      "dbt Bronze models for raw structured ingestion",
+      "dbt Silver models for cleaning, standardization, and enrichment",
+      "dbt Gold models (`fact`, `obt`) for analytics and BI consumption"
     ],
     highlights: [
-      "Secure-by-design integration patterns for regulated data.",
-      "Medallion architecture to keep raw + curated layers separate.",
-      "Operational checks to detect missing/late data."
+      "Medallion architecture with clear layer boundaries and ownership.",
+      "SCD Type 2 snapshots for historical point-in-time analysis.",
+      "Reusable macros and Jinja templating to keep transformations maintainable."
     ]
   },
 
@@ -167,42 +167,6 @@ export const projects: Project[] = [
       "Hybrid transformation approach using low-code ADF plus code-based PySpark.",
       "Clear separation of raw and curated layers for maintainability.",
       "Architecture prepared for CI/CD, incremental loads, and data quality checks."
-    ]
-  },
-
-  {
-    slug: "lakehouse-modeling",
-    title: "Lakehouse Medallion Modeling",
-    subtitle: "Bronze/Silver/Gold tables optimized for BI and self-serve analytics.",
-    tag: "Modeling",
-    stack: ["Delta", "Spark SQL", "dbt", "Power BI"],
-    href: "/projects/lakehouse-modeling",
-    overview:
-      "A clean medallion model that keeps raw data immutable while producing analytics-ready marts with consistent definitions.",
-    problem: [
-      "Teams needed self-serve analytics with consistent KPIs.",
-      "Raw feeds had inconsistent schemas and late arrivals."
-    ],
-    solution: [
-      "Bronze: immutable raw history.",
-      "Silver: standardized types, deduped entities, conformed dimensions.",
-      "Gold: marts for BI with stable schemas and documentation."
-    ],
-    metrics: [
-      "Faster dashboard iteration thanks to stable gold tables.",
-      "Lower rework from schema surprises.",
-      "Clear ownership by layer and contract."
-    ],
-    architecture: [
-      "Raw ingestion → bronze",
-      "Standardization + joins → silver",
-      "Marts + aggregates → gold",
-      "BI tools query gold"
-    ],
-    highlights: [
-      "Layer contracts reduce breaking changes.",
-      "Conformed dimensions improve KPI alignment.",
-      "Great foundation for ML features."
     ]
   },
 
