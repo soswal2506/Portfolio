@@ -21,6 +21,25 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Shubh Oswal - Data Engineer",
   description: "Portfolio + Kafka streaming telemetry showcase",
+  openGraph: {
+    title: "Shubh Oswal - Data Engineer",
+    description: "Portfolio + Kafka streaming telemetry showcase",
+    type: "website",
+    images: [
+      {
+        url: "/linkedin-thumbnail-shubh.png",
+        width: 1200,
+        height: 627,
+        alt: "Shubh Oswal portfolio thumbnail",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shubh Oswal - Data Engineer",
+    description: "Portfolio + Kafka streaming telemetry showcase",
+    images: ["/linkedin-thumbnail-shubh.png"],
+  },
 };
 
 const themeScript = `
